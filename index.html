@@ -4,10 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#7C6CF6">
-  <title>NovelTracker V3.0 Alpha</title>
+  <title>NovelTracker V2.6.1 Stable</title>
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
   <link rel="icon" type="image/svg+xml" href="images/logo.svg">
-  <link rel="stylesheet" href="css/style.css?v=3.0.0-alpha">
+  <link rel="stylesheet" href="css/style.css?v=2.6.1">
 </head>
 <body>
   <div class="nt-app">
@@ -26,10 +26,10 @@
         <button class="nt-nav-item" data-page="add"><span>➕</span>新增</button>
         <button class="nt-nav-item" data-page="novels"><span>📖</span>小說</button>
         <button class="nt-nav-item" data-page="dramas"><span>🎥</span>短劇</button>
-        <button class="nt-nav-item" data-page="more"><span>⚙️</span>設定</button>
+        <button class="nt-nav-item" data-page="more"><span>☰</span>更多</button>
       </nav>
 
-      <div class="nt-version">NovelTracker V3.0 Alpha</div>
+      <div class="nt-version">NovelTracker V2.6.1 Stable</div>
     </aside>
 
     <main class="nt-main">
@@ -41,14 +41,6 @@
       </header>
 
       <section class="nt-page active" id="page-home" data-title="首頁">
-        <section class="nt-v3-hero">
-          <div>
-            <span class="nt-v3-eyebrow">MY STORY LIBRARY</span>
-            <h2>我的小說與短劇</h2>
-            <p>把正在追、已完結與想回味的故事，安靜收進自己的書架。</p>
-          </div>
-          <button type="button" class="nt-v3-hero-action" data-go="add">＋ 新增追蹤</button>
-        </section>
         <div class="nt-stat-grid">
           <button type="button" class="nt-stat-card nt-stat-link nt-novel-tint" data-go="novels">
             <span class="nt-stat-top"><b>📖 小說</b><i>→</i></span>
@@ -231,7 +223,7 @@
         <div class="nt-card-grid" id="drama-list"></div>
       </section>
 
-      <section class="nt-page" id="page-more" data-title="設定">
+      <section class="nt-page" id="page-more" data-title="更多">
         <div class="nt-more-grid">
           <section class="nt-card" id="more-sheet">
             <div class="nt-section-heading">
@@ -333,7 +325,7 @@
       <button data-page="add" class="nt-add-tab"><span>＋</span><small>新增</small></button>
       <button data-page="novels"><span>📖</span><small>小說</small></button>
       <button data-page="dramas"><span>🎥</span><small>短劇</small></button>
-      <button data-page="more"><span>☰</span><small>設定</small></button>
+      <button data-page="more"><span>☰</span><small>更多</small></button>
     </nav>
   </div>
 
@@ -360,13 +352,13 @@
     hidden
   ></iframe>
 
-  <script src="js/storage.js?v=3.0.0-alpha"></script>
-  <script src="js/dashboard.js?v=3.0.0-alpha"></script>
-  <script src="js/render.js?v=3.0.0-alpha"></script>
-  <script src="js/filter.js?v=3.0.0-alpha"></script>
-  <script src="js/search.js?v=3.0.0-alpha"></script>
-  <script src="js/sheet.js?v=3.0.0-alpha"></script>
-  <script src="js/ui.js?v=3.0.0-alpha"></script>
-  <script src="js/app.js?v=3.0.0-alpha"></script>
+  <script src="js/storage.js?v=2.6.1"></script>
+  <script src="js/dashboard.js?v=2.6.1"></script>
+  <script src="js/render.js?v=2.6.1"></script>
+  <script src="js/filter.js?v=2.6.1"></script>
+  <script src="js/search.js?v=2.6.1"></script>
+  <script src="js/sheet.js?v=2.6.1"></script>
+  <script src="js/ui.js?v=2.6.1"></script>
+  <script src="js/app.js?v=2.6.1"></script>
 </body>
 </html>
