@@ -134,8 +134,11 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("tracker-form").addEventListener("submit", saveForm);
-    document.getElementById("tracker-form").addEventListener("reset", () => setTimeout(resetForm, 0));
     document.getElementById("cancel-edit-btn").addEventListener("click", resetForm);
+    document.querySelector('#tracker-form button[type="reset"]').addEventListener("click", event => {
+      event.preventDefault();
+      resetForm();
+    });
     document.getElementById("add-category-btn").addEventListener("click", addCategory);
     document.getElementById("new-category-input").addEventListener("keydown", event => {
       if (event.key === "Enter") {
@@ -147,7 +150,7 @@
     resetForm();
     renderCategoryManager();
     NT_RENDER.renderAll();
-    console.log("NovelTracker V2.1 Data loaded.");
+    console.log("NovelTracker V2.1.1 Data Fix loaded.");
   });
 
   window.NT_APP = { editRow, deleteRow, resetForm };
