@@ -1,90 +1,34 @@
-# NovelTracker V2.6.1 Stable
+# NovelTracker V3.0 Alpha
 
-以 GitHub Pages、Google Sheets 與 Google Apps Script 建立的小說／短劇追蹤看板。
+V3.0 Alpha 是建立在 V2.6.1 Stable 上的新版介面實驗版本。
 
-## 功能
+## 本版重點
 
-- Dashboard：小說、短劇、已完結、進度與分類統計
-- 小說＋短劇總覽、小說總覽、短劇總覽
-- 小說＋短劇同一筆新增
-- 編輯、刪除與刪除確認視窗
-- 分類新增、移除與篩選
-- 進階欄位篩選
+- 全新的柔和漸層背景
+- 新版首頁 Hero 區
+- 新版側邊導覽與手機底部導覽
+- 更有 App 感的卡片、圓角與陰影
+- 「更多」改名為「設定」
+- 保留 V2.6.1 全部核心功能與資料格式
+- Google Sheet 13 欄與 `NovelTrackerV2.gs` 可直接沿用
+
+## 保留功能
+
+- Dashboard
+- 小說＋短劇總覽
+- 小說總覽
+- 短劇總覽
+- 小說＋短劇一起新增
+- 編輯、刪除與二次確認
+- 分類管理與進階篩選
 - 浮動搜尋、上一個與下一個
-- Google Sheets 手動雙向同步
-- 桌機左側導覽與手機底部導覽
-- localStorage 本機儲存
-- 保留 Google Sheet 列順序
+- Google Sheets 雙向手動同步
+- localStorage 與資料順序
 
-## 專案結構
+## 部署方式
 
-```text
-index.html
-css/style.css
-js/
-  app.js
-  dashboard.js
-  filter.js
-  render.js
-  search.js
-  sheet.js
-  storage.js
-  ui.js
-images/
-  logo.svg
-  favicon.ico
-NovelTrackerV2.gs
-README.md
-CHANGELOG.md
-ROADMAP.md
-LICENSE
-```
+將 ZIP 解壓後，上傳至一個新的 GitHub Repository 測試，建議不要直接覆蓋 V2.6.1 Stable。
 
-## Google Sheet 欄位
+## 版本定位
 
-資料從第 3 列開始，A 到 M 共 13 欄：
-
-1. 分類
-2. 小說名稱
-3. 作者
-4. 小說男主角
-5. 小說女主角
-6. 章節
-7. 小說完結
-8. TXT／備註
-9. 短劇名稱
-10. 短劇男主角
-11. 短劇女主角
-12. 進度
-13. 短劇完結
-
-## 安裝
-
-1. 建立 Google Sheet，前兩列作為標題，資料從第 3 列開始。
-2. 開啟「擴充功能 → Apps Script」。
-3. 將 `NovelTrackerV2.gs` 貼入並儲存。
-4. 部署為網頁應用程式：
-   - 執行身分：我
-   - 誰可以存取：任何人
-5. 複製 `/exec` 網址。
-6. 將本專案上傳到 GitHub Repository 根目錄。
-7. 在 GitHub Settings → Pages 設定 `main` 與 `/ (root)`。
-8. 開啟網站，到「更多 → Google Sheets 雙向同步」，貼上 `/exec` 網址。
-
-## 同步方向
-
-- 從雲端下載：Google Sheet → 網頁
-- 備份至雲端：網頁 → Google Sheet
-
-同步會完整覆蓋目的地資料，因此操作前會要求確認。
-
-## 注意事項
-
-- V1 與 V2 網址不同時，localStorage 不會共用。
-- 網頁刪除後，要按「備份至雲端」，Sheet 才會同步刪除。
-- 在 Sheet 調整順序後，按「從雲端下載」，網頁會依列順序更新。
-- 若 GitHub Pages 顯示舊畫面，電腦按 `Ctrl + F5`；手機關閉頁面後重新開啟。
-
-## 版本
-
-**NovelTracker V2.6.1 Stable**
+這是 Alpha 介面版，重點是確認 V3 的視覺與操作方向；正式資料建議仍由 V2.6.1 Stable 保留備份。
