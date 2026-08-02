@@ -53,9 +53,12 @@
   function renderOverview() {
     const list = document.getElementById("overview-list");
     list.innerHTML = "";
-    const rows = NT_STORE.getRows();
+    const allEntries = NT_STORE.getRows().map((row, index) => ({ row, index }));
+    const entries = window.NT_FILTER
+      ? NT_FILTER.apply(allEntries, "overview")
+      : allEntries;
 
-    rows.forEach((row, index) => {
+    entries.forEach(({ row, index }) => {
       const card = document.createElement("article");
       card.className = "nt-content-card";
       card.dataset.recordIndex = index;
@@ -90,15 +93,22 @@
       list.appendChild(card);
     });
 
-    if (!rows.length) list.innerHTML = '<div class="nt-empty">尚無追蹤資料。</div>';
+    if (!entries.length) list.innerHTML = '<div class="nt-empty">找不到符合條件的追蹤資料。</div>';
   }
 
   function renderNovels() {
     const list = document.getElementById("novel-list");
     list.innerHTML = "";
 
-    NT_STORE.getRows().forEach((row, index) => {
-      if (!hasNovel(row)) return;
+    const allEntries = NT_STORE.getRows()
+      .map((row, index) => ({ row, index }))
+      .filter(entry => hasNovel(entry.row));
+
+    const entries = window.NT_FILTER
+      ? NT_FILTER.apply(allEntries, "novels")
+      : allEntries;
+
+    entries.forEach(({ row, index }) => {
       const card = document.createElement("article");
       card.className = "nt-content-card nt-novel-card";
       card.dataset.recordIndex = index;
@@ -118,15 +128,22 @@
       list.appendChild(card);
     });
 
-    if (!list.children.length) list.innerHTML = '<div class="nt-empty">尚無小說資料。</div>';
+    if (!list.children.length) list.innerHTML = '<div class="nt-empty">找不到符合條件的小說資料。</div>';
   }
 
   function renderDramas() {
     const list = document.getElementById("drama-list");
     list.innerHTML = "";
 
-    NT_STORE.getRows().forEach((row, index) => {
-      if (!hasDrama(row)) return;
+    const allEntries = NT_STORE.getRows()
+      .map((row, index) => ({ row, index }))
+      .filter(entry => hasDrama(entry.row));
+
+    const entries = window.NT_FILTER
+      ? NT_FILTER.apply(allEntries, "dramas")
+      : allEntries;
+
+    entries.forEach(({ row, index }) => {
       const card = document.createElement("article");
       card.className = "nt-content-card nt-drama-card";
       card.dataset.recordIndex = index;
@@ -144,7 +161,7 @@
       list.appendChild(card);
     });
 
-    if (!list.children.length) list.innerHTML = '<div class="nt-empty">尚無短劇資料。</div>';
+    if (!list.children.length) list.innerHTML = '<div class="nt-empty">找不到符合條件的短劇資料。</div>';
   }
 
   function renderAll() {
@@ -152,6 +169,10 @@
     renderNovels();
     renderDramas();
     NT_DASHBOARD.render();
+
+    if (window.NT_FILTER?.refreshOptions) {
+      window.NT_FILTER.refreshOptions();
+    }
 
     if (window.NT_SEARCH?.refreshAfterRender) {
       window.NT_SEARCH.refreshAfterRender();

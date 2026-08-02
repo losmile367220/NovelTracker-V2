@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#7C6CF6">
   <title>NovelTracker V2</title>
-  <link rel="stylesheet" href="css/style.css?v=2.3.0">
+  <link rel="stylesheet" href="css/style.css?v=2.4.0">
 </head>
 <body>
   <div class="nt-app">
@@ -27,7 +27,7 @@
         <button class="nt-nav-item" data-page="more"><span>☰</span>更多</button>
       </nav>
 
-      <div class="nt-version">NovelTracker V2.3.0</div>
+      <div class="nt-version">NovelTracker V2.4.0</div>
     </aside>
 
     <main class="nt-main">
@@ -120,10 +120,12 @@
             </div>
           </div>
           <div class="nt-filter-shell">
-            <input type="search" placeholder="搜尋小說、作者、主角、短劇…">
-            <button class="nt-btn nt-btn-light">分類篩選</button>
-            <button class="nt-btn nt-btn-light">進階欄位篩選</button>
+            <button class="nt-btn nt-btn-light nt-filter-toggle" type="button" data-filter-panel="overview">分類與進階篩選</button>
+            <button class="nt-btn nt-btn-light" type="button" data-clear-filter="overview">清除篩選</button>
           </div>
+          <section class="nt-filter-panel" id="filter-panel-overview" hidden>
+            <div class="nt-filter-panel-body" id="filter-controls-overview"></div>
+          </section>
         </section>
 
         <div class="nt-overview-grid" id="overview-list"></div>
@@ -138,10 +140,12 @@
             </div>
           </div>
           <div class="nt-filter-shell">
-            <input type="search" placeholder="搜尋小說、作者、男主角、女主角…">
-            <button class="nt-btn nt-btn-light">分類篩選</button>
-            <button class="nt-btn nt-btn-light">進階欄位篩選</button>
+            <button class="nt-btn nt-btn-light nt-filter-toggle" type="button" data-filter-panel="novels">分類與進階篩選</button>
+            <button class="nt-btn nt-btn-light" type="button" data-clear-filter="novels">清除篩選</button>
           </div>
+          <section class="nt-filter-panel" id="filter-panel-novels" hidden>
+            <div class="nt-filter-panel-body" id="filter-controls-novels"></div>
+          </section>
         </section>
 
         <div class="nt-card-grid" id="novel-list"></div>
@@ -206,10 +210,12 @@
             </div>
           </div>
           <div class="nt-filter-shell">
-            <input type="search" placeholder="搜尋短劇、演員、進度…">
-            <button class="nt-btn nt-btn-light">分類篩選</button>
-            <button class="nt-btn nt-btn-light">進階欄位篩選</button>
+            <button class="nt-btn nt-btn-light nt-filter-toggle" type="button" data-filter-panel="dramas">分類與進階篩選</button>
+            <button class="nt-btn nt-btn-light" type="button" data-clear-filter="dramas">清除篩選</button>
           </div>
+          <section class="nt-filter-panel" id="filter-panel-dramas" hidden>
+            <div class="nt-filter-panel-body" id="filter-controls-dramas"></div>
+          </section>
         </section>
 
         <div class="nt-card-grid" id="drama-list"></div>
@@ -282,13 +288,13 @@
     </nav>
   </div>
 
-  <script src="js/storage.js?v=2.3.0"></script>
-  <script src="js/dashboard.js?v=2.3.0"></script>
-  <script src="js/render.js?v=2.3.0"></script>
-  <script src="js/filter.js?v=2.3.0"></script>
-  <script src="js/search.js?v=2.3.0"></script>
-  <script src="js/sheet.js?v=2.3.0"></script>
-  <script src="js/ui.js?v=2.3.0"></script>
-  <script src="js/app.js?v=2.3.0"></script>
+  <script src="js/storage.js?v=2.4.0"></script>
+  <script src="js/dashboard.js?v=2.4.0"></script>
+  <script src="js/render.js?v=2.4.0"></script>
+  <script src="js/filter.js?v=2.4.0"></script>
+  <script src="js/search.js?v=2.4.0"></script>
+  <script src="js/sheet.js?v=2.4.0"></script>
+  <script src="js/ui.js?v=2.4.0"></script>
+  <script src="js/app.js?v=2.4.0"></script>
 </body>
 </html>
