@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#7C6CF6">
   <title>NovelTracker V2</title>
-  <link rel="stylesheet" href="css/style.css?v=2.4.0">
+  <link rel="stylesheet" href="css/style.css?v=2.5.0">
 </head>
 <body>
   <div class="nt-app">
@@ -27,7 +27,7 @@
         <button class="nt-nav-item" data-page="more"><span>☰</span>更多</button>
       </nav>
 
-      <div class="nt-version">NovelTracker V2.4.0</div>
+      <div class="nt-version">NovelTracker V2.5.0</div>
     </aside>
 
     <main class="nt-main">
@@ -224,17 +224,53 @@
       <section class="nt-page" id="page-more" data-title="更多">
         <div class="nt-more-grid">
           <section class="nt-card" id="more-sheet">
-            <div class="nt-section-heading"><h2>☁️ Google Sheets 同步</h2></div>
+            <div class="nt-section-heading">
+              <div>
+                <h2>☁️ Google Sheets 雙向同步</h2>
+                <p>下載與上傳皆會完整保留 Google Sheet 的資料順序。</p>
+              </div>
+            </div>
+
             <div class="nt-field">
-              <label>Apps Script 網址</label>
-              <input type="text" placeholder="https://script.google.com/macros/s/.../exec">
+              <label for="gas-url">Apps Script 網址</label>
+              <input
+                type="text"
+                id="gas-url"
+                placeholder="https://script.google.com/macros/s/.../exec"
+                autocomplete="off"
+              >
             </div>
+
+            <div class="nt-sync-direction-grid">
+              <article class="nt-sync-direction-card">
+                <strong>⬇️ 從雲端下載</strong>
+                <span>Google Sheet → 網頁</span>
+                <small>以試算表目前內容及列順序，完整覆蓋網頁本機資料。</small>
+                <button class="nt-btn nt-btn-primary" type="button" id="download-cloud-btn">
+                  從雲端下載
+                </button>
+              </article>
+
+              <article class="nt-sync-direction-card">
+                <strong>⬆️ 備份至雲端</strong>
+                <span>網頁 → Google Sheet</span>
+                <small>以網頁目前內容及順序，完整覆蓋試算表第 3 列之後的資料。</small>
+                <button class="nt-btn nt-btn-warning" type="button" id="upload-cloud-btn">
+                  備份至雲端
+                </button>
+              </article>
+            </div>
+
             <div class="nt-form-actions">
-              <button class="nt-btn nt-btn-light">儲存網址</button>
-              <button class="nt-btn nt-btn-primary">從雲端下載</button>
-              <button class="nt-btn nt-btn-warning">備份至雲端</button>
+              <button class="nt-btn nt-btn-light" type="button" id="save-gas-url-btn">儲存網址</button>
             </div>
-            <p class="nt-hint">Framework 版本先完成介面，功能會在後續版本接回。</p>
+
+            <div class="nt-sync-status" id="sync-status" aria-live="polite"></div>
+            <div class="nt-cloud-info" id="cloud-info">尚未同步</div>
+
+            <p class="nt-hint">
+              兩邊皆可新增、修改、刪除與調整順序；同步時請選擇要以哪一邊為準。
+            </p>
           </section>
 
           <section class="nt-card" id="more-category">
@@ -288,13 +324,21 @@
     </nav>
   </div>
 
-  <script src="js/storage.js?v=2.4.0"></script>
-  <script src="js/dashboard.js?v=2.4.0"></script>
-  <script src="js/render.js?v=2.4.0"></script>
-  <script src="js/filter.js?v=2.4.0"></script>
-  <script src="js/search.js?v=2.4.0"></script>
-  <script src="js/sheet.js?v=2.4.0"></script>
-  <script src="js/ui.js?v=2.4.0"></script>
-  <script src="js/app.js?v=2.4.0"></script>
+
+  <iframe
+    name="nt-cloud-upload-frame"
+    id="nt-cloud-upload-frame"
+    title="Google Sheets 上傳通道"
+    hidden
+  ></iframe>
+
+  <script src="js/storage.js?v=2.5.0"></script>
+  <script src="js/dashboard.js?v=2.5.0"></script>
+  <script src="js/render.js?v=2.5.0"></script>
+  <script src="js/filter.js?v=2.5.0"></script>
+  <script src="js/search.js?v=2.5.0"></script>
+  <script src="js/sheet.js?v=2.5.0"></script>
+  <script src="js/ui.js?v=2.5.0"></script>
+  <script src="js/app.js?v=2.5.0"></script>
 </body>
 </html>

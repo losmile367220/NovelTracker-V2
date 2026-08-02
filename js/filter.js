@@ -158,6 +158,14 @@
     NT_RENDER.renderAll();
   }
 
+  function clearAll() {
+    Object.keys(state).forEach(pageName => {
+      state[pageName] = {};
+      buildControls(pageName);
+    });
+    NT_RENDER.renderAll();
+  }
+
   function togglePanel(pageName) {
     const panel = document.getElementById(`filter-panel-${pageName}`);
     if (!panel) return;
@@ -186,6 +194,7 @@
     apply: filterEntries,
     refreshOptions,
     clear,
+    clearAll,
     getState: pageName => ({ ...state[pageName] })
   };
 

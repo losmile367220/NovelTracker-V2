@@ -234,7 +234,17 @@
     }
   }
 
-  window.NT_APP = { editRow, deleteRow, resetForm };
+  function refreshCategoryUI() {
+    renderFormCategories();
+    renderCategoryManager();
+  }
+
+  window.NT_APP = {
+    editRow,
+    deleteRow,
+    resetForm,
+    refreshCategoryUI
+  };
 
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initialize, { once: true });

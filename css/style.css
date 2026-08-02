@@ -603,3 +603,93 @@ button.nt-stat-card{
     grid-template-columns:1fr;
   }
 }
+
+
+/* V2.5 Google Sheets Sync */
+.nt-sync-direction-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:16px;
+}
+.nt-sync-direction-card{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  min-height:190px;
+  border:1px solid var(--line);
+  border-radius:16px;
+  background:#FAFAFC;
+  padding:16px;
+}
+.nt-sync-direction-card strong{
+  font-size:17px;
+}
+.nt-sync-direction-card span{
+  display:block;
+  margin-top:4px;
+  color:var(--primary-dark);
+  font-size:13px;
+  font-weight:900;
+}
+.nt-sync-direction-card small{
+  display:block;
+  margin:9px 0 16px;
+  color:var(--muted);
+  line-height:1.65;
+}
+.nt-sync-direction-card .nt-btn{
+  width:100%;
+  margin-top:auto;
+}
+.nt-btn:disabled{
+  opacity:.55;
+  cursor:not-allowed;
+  transform:none!important;
+}
+.nt-sync-status{
+  min-height:24px;
+  margin-top:14px;
+  padding:10px 12px;
+  border-radius:12px;
+  color:var(--muted);
+  font-size:13px;
+  font-weight:850;
+}
+.nt-sync-status:empty{
+  display:none;
+}
+.nt-sync-status.info{
+  display:block;
+  background:#F1F2F6;
+}
+.nt-sync-status.loading{
+  display:block;
+  background:var(--primary-soft);
+  color:var(--primary-dark);
+}
+.nt-sync-status.success{
+  display:block;
+  background:#EAF7EC;
+  color:#2E7D45;
+}
+.nt-sync-status.error{
+  display:block;
+  background:#FDE8E8;
+  color:#A44C4C;
+}
+.nt-cloud-info{
+  display:grid;
+  gap:3px;
+  margin-top:10px;
+  color:var(--muted);
+  font-size:12px;
+}
+@media(max-width:760px){
+  .nt-sync-direction-grid{
+    grid-template-columns:1fr;
+  }
+  .nt-sync-direction-card{
+    min-height:auto;
+  }
+}
