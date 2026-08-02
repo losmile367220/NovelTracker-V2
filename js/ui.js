@@ -13,6 +13,10 @@
     title.textContent = currentTitle;
     breadcrumb.textContent = pageName === 'home' ? '首頁' : `首頁 / ${currentTitle}`;
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if (window.NT_SEARCH?.onPageChanged) {
+      window.NT_SEARCH.onPageChanged(pageName);
+    }
   }
 
   pageButtons.forEach(btn => btn.addEventListener('click', () => showPage(btn.dataset.page)));

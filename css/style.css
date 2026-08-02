@@ -410,3 +410,120 @@ button.nt-stat-card{
     text-align:left;
   }
 }
+
+
+/* V2.3 Floating Search */
+.nt-floating-search-toggle{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:80;
+  width:58px;
+  height:58px;
+  border:0;
+  border-radius:50%;
+  background:var(--primary);
+  color:#fff;
+  font-size:24px;
+  box-shadow:0 14px 30px rgba(80,66,180,.28);
+  transition:transform .16s ease, opacity .16s ease;
+}
+.nt-floating-search-toggle:hover{
+  transform:translateY(-2px) scale(1.03);
+}
+.nt-floating-search-toggle.nt-search-disabled{
+  opacity:.48;
+}
+.nt-floating-search{
+  position:fixed;
+  right:22px;
+  bottom:22px;
+  z-index:90;
+  width:min(430px,calc(100vw - 28px));
+  background:rgba(255,255,255,.98);
+  border:1px solid var(--line);
+  border-radius:18px;
+  box-shadow:0 20px 46px rgba(42,44,78,.22);
+  padding:12px;
+  display:none;
+  backdrop-filter:blur(14px);
+}
+.nt-floating-search.open{
+  display:block;
+  animation:ntSearchOpen .18s ease;
+}
+@keyframes ntSearchOpen{
+  from{opacity:0;transform:translateY(8px) scale(.98)}
+  to{opacity:1;transform:none}
+}
+.nt-floating-search-top{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:8px;
+}
+.nt-search-close{
+  width:44px;
+  min-height:44px;
+  border:0;
+  border-radius:12px;
+  background:#EFF0F5;
+  color:#45485D;
+  font-weight:900;
+}
+.nt-floating-search-nav{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:8px;
+  align-items:center;
+  margin-top:8px;
+}
+.nt-floating-search-nav button{
+  border:0;
+  border-radius:11px;
+  min-height:40px;
+  padding:8px 13px;
+  background:var(--primary-soft);
+  color:var(--primary-dark);
+  font-weight:900;
+}
+.nt-search-status{
+  text-align:center;
+  color:var(--muted);
+  font-size:13px;
+  font-weight:850;
+}
+.nt-search-hint{
+  margin-top:7px;
+  text-align:center;
+  color:#9497A8;
+  font-size:11px;
+}
+.nt-search-match{
+  outline:2px solid #F0C94A;
+  outline-offset:-2px;
+  background:#FFFBE6 !important;
+}
+.nt-search-current{
+  outline:3px solid #F39A2E;
+  outline-offset:-3px;
+  background:#FFF1C7 !important;
+  box-shadow:0 16px 34px rgba(243,154,46,.18);
+}
+
+@media(max-width:760px){
+  .nt-floating-search-toggle{
+    right:14px;
+    bottom:92px;
+    width:54px;
+    height:54px;
+  }
+  .nt-floating-search{
+    left:8px;
+    right:8px;
+    bottom:92px;
+    width:auto;
+  }
+  .nt-search-hint{
+    display:none;
+  }
+}

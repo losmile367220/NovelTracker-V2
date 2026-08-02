@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#7C6CF6">
   <title>NovelTracker V2</title>
-  <link rel="stylesheet" href="css/style.css?v=2.2.0">
+  <link rel="stylesheet" href="css/style.css?v=2.3.0">
 </head>
 <body>
   <div class="nt-app">
@@ -27,7 +27,7 @@
         <button class="nt-nav-item" data-page="more"><span>☰</span>更多</button>
       </nav>
 
-      <div class="nt-version">NovelTracker V2.2.0</div>
+      <div class="nt-version">NovelTracker V2.3.0</div>
     </aside>
 
     <main class="nt-main">
@@ -243,6 +243,35 @@
       </section>
     </main>
 
+
+    <button
+      type="button"
+      class="nt-floating-search-toggle"
+      id="nt-floating-search-toggle"
+      aria-label="開啟搜尋"
+      title="開啟搜尋"
+    >🔍</button>
+
+    <section class="nt-floating-search" id="nt-floating-search" aria-label="浮動搜尋">
+      <div class="nt-floating-search-top">
+        <input
+          type="search"
+          id="nt-floating-search-input"
+          placeholder="搜尋目前頁面的資料…"
+          autocomplete="off"
+        >
+        <button type="button" class="nt-search-close" id="nt-search-close" aria-label="關閉搜尋">✕</button>
+      </div>
+
+      <div class="nt-floating-search-nav">
+        <button type="button" id="nt-search-prev">上一個</button>
+        <div class="nt-search-status" id="nt-search-status">輸入關鍵字開始搜尋</div>
+        <button type="button" id="nt-search-next">下一個</button>
+      </div>
+
+      <div class="nt-search-hint">Enter：下一個　Shift + Enter：上一個　Esc：關閉</div>
+    </section>
+
     <nav class="nt-bottom-nav" aria-label="手機導覽">
       <button class="active" data-page="home"><span>🏠</span><small>首頁</small></button>
       <button data-page="overview"><span>📚</span><small>總覽</small></button>
@@ -253,13 +282,13 @@
     </nav>
   </div>
 
-  <script src="js/storage.js?v=2.2.0"></script>
-  <script src="js/dashboard.js?v=2.2.0"></script>
-  <script src="js/render.js?v=2.2.0"></script>
-  <script src="js/filter.js?v=2.2.0"></script>
-  <script src="js/search.js?v=2.2.0"></script>
-  <script src="js/sheet.js?v=2.2.0"></script>
-  <script src="js/ui.js?v=2.2.0"></script>
-  <script src="js/app.js?v=2.2.0"></script>
+  <script src="js/storage.js?v=2.3.0"></script>
+  <script src="js/dashboard.js?v=2.3.0"></script>
+  <script src="js/render.js?v=2.3.0"></script>
+  <script src="js/filter.js?v=2.3.0"></script>
+  <script src="js/search.js?v=2.3.0"></script>
+  <script src="js/sheet.js?v=2.3.0"></script>
+  <script src="js/ui.js?v=2.3.0"></script>
+  <script src="js/app.js?v=2.3.0"></script>
 </body>
 </html>

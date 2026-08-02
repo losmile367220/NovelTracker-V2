@@ -152,6 +152,10 @@
     renderNovels();
     renderDramas();
     NT_DASHBOARD.render();
+
+    if (window.NT_SEARCH?.refreshAfterRender) {
+      window.NT_SEARCH.refreshAfterRender();
+    }
   }
 
   window.NT_RENDER = { renderAll };
