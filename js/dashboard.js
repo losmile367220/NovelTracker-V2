@@ -17,7 +17,25 @@
 
     document.getElementById("stat-novels").textContent = novelRows.length;
     document.getElementById("stat-dramas").textContent = dramaRows.length;
-    document.getElementById("stat-completed").textContent = completed;
+    document.getElementById("stat-novel-completed").textContent = novelDone;
+    document.getElementById("stat-drama-completed").textContent = dramaDone;
+
+    const lastUpdatedElement = document.getElementById("last-updated");
+    const lastUpdated = NT_STORE.getLastUpdated();
+    if (lastUpdated) {
+      const date = new Date(lastUpdated);
+      lastUpdatedElement.textContent =
+        `最後更新：${date.toLocaleString("zh-TW", {
+          year: "numeric",
+          month: "2-digit",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false
+        })}`;
+    } else {
+      lastUpdatedElement.textContent = "最後更新：尚未有變更紀錄";
+    }
 
     const novelPercent = percent(novelDone, novelRows.length);
     const dramaPercent = percent(dramaDone, dramaRows.length);

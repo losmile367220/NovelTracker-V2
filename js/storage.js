@@ -1,6 +1,7 @@
 (() => {
   const DATA_KEY = "novel_tableData";
   const CATEGORY_KEY = "novel_categories";
+  const LAST_UPDATED_KEY = "novel_last_updated";
 
   const DEFAULT_ROWS = [[
     "穿越, 空間", "我的夫君柔弱自理", "勤不語", "姜重華", "月般般",
@@ -45,13 +46,24 @@
     });
   }
 
-  function save() {
+  function persist() {
     localStorage.setItem(DATA_KEY, JSON.stringify(rows));
     localStorage.setItem(CATEGORY_KEY, JSON.stringify(categories));
   }
 
+  function touchLastUpdated() {
+    const now = new Date().toISOString();
+    localStorage.setItem(LAST_UPDATED_KEY, now);
+    return now;
+  }
+
+  function saveAndTouch() {
+    persist();
+    touchLastUpdated();
+  }
+
   extractCategories();
-  save();
+  persist();
 
   window.NT_STORE = {
     getRows: () => rows,
@@ -59,39 +71,41 @@
     setRows(nextRows) {
       rows = normalizeRows(nextRows);
       extractCategories();
-      save();
+      saveAndTouch();
     },
     addRow(row) {
       rows.push(normalizeRows([row])[0]);
       extractCategories();
-      save();
+      saveAndTouch();
     },
     updateRow(index, row) {
       if (!Number.isInteger(index) || !rows[index]) return false;
       rows[index] = normalizeRows([row])[0];
       extractCategories();
-      save();
+      saveAndTouch();
       return true;
     },
     deleteRow(index) {
       if (!Number.isInteger(index) || !rows[index]) return false;
       rows.splice(index, 1);
-      save();
+      saveAndTouch();
       return true;
     },
     addCategory(category) {
       const value = String(category || "").trim();
       if (!value || value.includes(",") || categories.includes(value)) return false;
       categories.push(value);
-      save();
+      saveAndTouch();
       return true;
     },
     removeCategory(category) {
       if (categories.length <= 1) return false;
       categories = categories.filter(item => item !== category);
-      save();
+      saveAndTouch();
       return true;
     },
-    save
+    getLastUpdated: () => localStorage.getItem(LAST_UPDATED_KEY) || "",
+    touchLastUpdated,
+    save: persist
   };
 })();

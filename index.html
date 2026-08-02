@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#7C6CF6">
   <title>NovelTracker V2</title>
-  <link rel="stylesheet" href="css/style.css?v=2.1.3">
+  <link rel="stylesheet" href="css/style.css?v=2.2.0">
 </head>
 <body>
   <div class="nt-app">
@@ -27,7 +27,7 @@
         <button class="nt-nav-item" data-page="more"><span>☰</span>更多</button>
       </nav>
 
-      <div class="nt-version">NovelTracker V2.1.3</div>
+      <div class="nt-version">NovelTracker V2.2.0</div>
     </aside>
 
     <main class="nt-main">
@@ -40,18 +40,35 @@
 
       <section class="nt-page active" id="page-home" data-title="首頁">
         <div class="nt-stat-grid">
-          <article class="nt-stat-card nt-novel-tint">
+          <button type="button" class="nt-stat-card nt-stat-link nt-novel-tint" data-go="novels">
             <span>📖 小說</span>
             <strong id="stat-novels">0</strong>
-          </article>
-          <article class="nt-stat-card nt-drama-tint">
+            <small>總數</small>
+          </button>
+
+          <button type="button" class="nt-stat-card nt-stat-link nt-drama-tint" data-go="dramas">
             <span>🎥 短劇</span>
             <strong id="stat-dramas">0</strong>
-          </article>
-          <article class="nt-stat-card nt-success-tint">
+            <small>總數</small>
+          </button>
+
+          <article class="nt-stat-card nt-success-tint nt-completed-card">
             <span>✅ 已完結</span>
-            <strong id="stat-completed">0</strong>
+            <div class="nt-completed-counts">
+              <div>
+                <b>📖 小說</b>
+                <strong><em id="stat-novel-completed">0</em> 本</strong>
+              </div>
+              <div>
+                <b>🎥 短劇</b>
+                <strong><em id="stat-drama-completed">0</em> 部</strong>
+              </div>
+            </div>
           </article>
+        </div>
+
+        <div class="nt-last-updated" id="last-updated">
+          最後更新：尚未有變更紀錄
         </div>
 
         <section class="nt-card">
@@ -236,13 +253,13 @@
     </nav>
   </div>
 
-  <script src="js/storage.js?v=2.1.3"></script>
-  <script src="js/dashboard.js?v=2.1.3"></script>
-  <script src="js/render.js?v=2.1.3"></script>
-  <script src="js/filter.js?v=2.1.3"></script>
-  <script src="js/search.js?v=2.1.3"></script>
-  <script src="js/sheet.js?v=2.1.3"></script>
-  <script src="js/ui.js?v=2.1.3"></script>
-  <script src="js/app.js?v=2.1.3"></script>
+  <script src="js/storage.js?v=2.2.0"></script>
+  <script src="js/dashboard.js?v=2.2.0"></script>
+  <script src="js/render.js?v=2.2.0"></script>
+  <script src="js/filter.js?v=2.2.0"></script>
+  <script src="js/search.js?v=2.2.0"></script>
+  <script src="js/sheet.js?v=2.2.0"></script>
+  <script src="js/ui.js?v=2.2.0"></script>
+  <script src="js/app.js?v=2.2.0"></script>
 </body>
 </html>
