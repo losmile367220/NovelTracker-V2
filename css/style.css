@@ -693,3 +693,201 @@ button.nt-stat-card{
     min-height:auto;
   }
 }
+
+
+/* V2.6 UI Polish */
+.nt-stat-top{
+  display:flex!important;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.nt-stat-top b{font-weight:900}
+.nt-stat-top i{
+  font-style:normal;
+  width:30px;
+  height:30px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:rgba(255,255,255,.65);
+  transition:transform .16s ease;
+}
+.nt-stat-link:hover .nt-stat-top i{transform:translateX(3px)}
+.nt-stat-card > strong em{
+  font-style:normal;
+  font-size:34px;
+}
+.nt-stat-card > strong{
+  font-size:17px;
+}
+.nt-card,
+.nt-content-card,
+.nt-quick-btn,
+.nt-sync-direction-card,
+.nt-stat-card{
+  transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+}
+.nt-content-card:hover,
+.nt-sync-direction-card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 16px 34px rgba(42,44,78,.11);
+  border-color:#DCD8F6;
+}
+.nt-quick-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 22px rgba(42,44,78,.09);
+}
+.nt-category-stat-row{
+  padding:11px 0;
+  border-bottom:1px solid #EEF0F5;
+}
+.nt-category-stat-row:last-child{border-bottom:0}
+.nt-category-stat-top{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:7px;
+}
+.nt-category-stat-track{
+  height:7px;
+  overflow:hidden;
+  border-radius:999px;
+  background:#ECEEF4;
+}
+.nt-category-stat-track span{
+  display:block;
+  height:100%;
+  border-radius:inherit;
+  background:linear-gradient(90deg,var(--primary),#A696FF);
+}
+.nt-sheet-heading-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+.nt-connection-badge{
+  display:inline-flex;
+  align-items:center;
+  border-radius:999px;
+  padding:5px 9px;
+  font-size:12px;
+  font-weight:900;
+}
+.nt-connection-badge.online{
+  background:#EAF7EC;
+  color:#2E7D45;
+}
+.nt-connection-badge.online::before{
+  content:"●";
+  margin-right:5px;
+}
+.nt-connection-badge.offline{
+  background:#EFF0F5;
+  color:#777A8D;
+}
+
+/* Toast */
+.nt-toast-region{
+  position:fixed;
+  top:18px;
+  right:18px;
+  z-index:300;
+  display:grid;
+  gap:8px;
+  width:min(360px,calc(100vw - 24px));
+  pointer-events:none;
+}
+.nt-toast{
+  display:flex;
+  gap:9px;
+  align-items:flex-start;
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:14px;
+  padding:12px 14px;
+  box-shadow:0 16px 36px rgba(42,44,78,.18);
+  opacity:0;
+  transform:translateY(-8px);
+  transition:.2s ease;
+  font-size:14px;
+  font-weight:800;
+}
+.nt-toast.show{
+  opacity:1;
+  transform:none;
+}
+.nt-toast.success{border-left:5px solid #66BB6A}
+.nt-toast.error{border-left:5px solid #E57373}
+.nt-toast.info{border-left:5px solid #7C6CF6}
+
+/* Confirm dialog */
+.nt-dialog-backdrop{
+  position:fixed;
+  inset:0;
+  z-index:320;
+  display:grid;
+  place-items:center;
+  padding:18px;
+  background:rgba(29,31,48,.42);
+  backdrop-filter:blur(4px);
+  opacity:0;
+  transition:opacity .17s ease;
+}
+.nt-dialog-backdrop[hidden]{display:none}
+.nt-dialog-backdrop.open{opacity:1}
+.nt-confirm-dialog{
+  width:min(430px,100%);
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:22px;
+  box-shadow:0 24px 60px rgba(20,22,38,.25);
+  transform:translateY(8px) scale(.98);
+  transition:transform .17s ease;
+}
+.nt-dialog-backdrop.open .nt-confirm-dialog{transform:none}
+.nt-confirm-icon{
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border-radius:15px;
+  background:#FDE4E4;
+  font-size:23px;
+}
+.nt-confirm-dialog h2{margin:14px 0 8px}
+.nt-confirm-dialog p{margin:0;color:#676A7E;line-height:1.7}
+.nt-confirm-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:8px;
+  margin-top:20px;
+}
+.nt-btn-danger{
+  background:#E98A8A;
+  color:#fff;
+}
+
+@media(max-width:760px){
+  .nt-toast-region{
+    top:10px;
+    left:8px;
+    right:8px;
+    width:auto;
+  }
+  .nt-stat-grid{
+    grid-template-columns:1fr 1fr;
+  }
+  .nt-stat-grid .nt-completed-card{
+    grid-column:1/-1;
+  }
+  .nt-completed-counts{
+    grid-template-columns:1fr 1fr;
+  }
+  .nt-confirm-actions{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+}

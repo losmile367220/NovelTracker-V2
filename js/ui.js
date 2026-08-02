@@ -31,5 +31,85 @@
     });
   });
 
-  window.NT_UI = { showPage };
+
+  let confirmResolver = null;
+
+  function toast(message, type = "success", duration = 3000) {
+    const region = document.getElementById("nt-toast-region");
+    if (!region) return;
+
+    const item = document.createElement("div");
+    item.className = `nt-toast ${type}`;
+    item.setAttribute("role", "status");
+
+    const icon = document.createElement("span");
+    icon.textContent = type === "error" ? "⚠️" : type === "info" ? "ℹ️" : "✅";
+
+    const text = document.createElement("span");
+    text.textContent = message;
+
+    item.append(icon, text);
+    region.appendChild(item);
+
+    requestAnimationFrame(() => item.classList.add("show"));
+
+    window.setTimeout(() => {
+      item.classList.remove("show");
+      window.setTimeout(() => item.remove(), 220);
+    }, duration);
+  }
+
+  function confirmDialog(message, options = {}) {
+    const backdrop = document.getElementById("nt-confirm-backdrop");
+    const messageElement = document.getElementById("nt-confirm-message");
+    const okButton = document.getElementById("nt-confirm-ok");
+    const cancelButton = document.getElementById("nt-confirm-cancel");
+
+    if (!backdrop || !messageElement || !okButton || !cancelButton) {
+      return Promise.resolve(window.confirm(message));
+    }
+
+    messageElement.textContent = message;
+    okButton.textContent = options.confirmText || "確認刪除";
+    backdrop.hidden = false;
+
+    requestAnimationFrame(() => backdrop.classList.add("open"));
+
+    return new Promise(resolve => {
+      confirmResolver = resolve;
+      okButton.focus();
+    });
+  }
+
+  function closeConfirm(result) {
+    const backdrop = document.getElementById("nt-confirm-backdrop");
+    if (!backdrop) return;
+
+    backdrop.classList.remove("open");
+    window.setTimeout(() => {
+      backdrop.hidden = true;
+    }, 170);
+
+    if (confirmResolver) {
+      confirmResolver(result);
+      confirmResolver = null;
+    }
+  }
+
+  document.getElementById("nt-confirm-ok")?.addEventListener("click", () => closeConfirm(true));
+  document.getElementById("nt-confirm-cancel")?.addEventListener("click", () => closeConfirm(false));
+  document.getElementById("nt-confirm-backdrop")?.addEventListener("click", event => {
+    if (event.target.id === "nt-confirm-backdrop") closeConfirm(false);
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && !document.getElementById("nt-confirm-backdrop")?.hidden) {
+      closeConfirm(false);
+    }
+  });
+
+  window.NT_UI = {
+    showPage,
+    toast,
+    confirmDialog
+  };
 })();

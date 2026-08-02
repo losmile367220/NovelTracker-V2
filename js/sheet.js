@@ -55,6 +55,15 @@
     });
   }
 
+  function renderConnectionStatus() {
+    const badge = get("cloud-connection-status");
+    if (!badge) return;
+
+    const url = text(localStorage.getItem(GAS_URL_KEY));
+    badge.className = `nt-connection-badge ${url ? "online" : "offline"}`;
+    badge.textContent = url ? "已設定連線" : "尚未設定";
+  }
+
   function renderCloudInfo() {
     const box = get("cloud-info");
     if (!box) return;
@@ -88,6 +97,7 @@
     }
 
     localStorage.setItem(GAS_URL_KEY, url);
+    renderConnectionStatus();
 
     if (showMessage) {
       setStatus("Apps Script 網址已儲存在這台裝置。", "success", 2800);
@@ -285,6 +295,7 @@
       }
     });
 
+    renderConnectionStatus();
     renderCloudInfo();
   }
 

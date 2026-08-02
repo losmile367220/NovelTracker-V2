@@ -66,13 +66,29 @@
       return;
     }
 
+    const maxCount = stats[0]?.[1] || 1;
+
     stats.slice(0, 10).forEach(([category, count]) => {
       const row = document.createElement("div");
+      row.className = "nt-category-stat-row";
+
+      const top = document.createElement("div");
+      top.className = "nt-category-stat-top";
+
       const name = document.createElement("span");
       const value = document.createElement("strong");
-      name.textContent = category;
+      name.textContent = `🏷️ ${category}`;
       value.textContent = count;
-      row.append(name, value);
+      top.append(name, value);
+
+      const track = document.createElement("div");
+      track.className = "nt-category-stat-track";
+
+      const bar = document.createElement("span");
+      bar.style.width = `${Math.max(8, Math.round(count / maxCount * 100))}%`;
+      track.appendChild(bar);
+
+      row.append(top, track);
       box.appendChild(row);
     });
   }

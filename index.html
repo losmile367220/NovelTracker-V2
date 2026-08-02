@@ -4,8 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#7C6CF6">
-  <title>NovelTracker V2</title>
-  <link rel="stylesheet" href="css/style.css?v=2.5.0">
+  <title>NovelTracker V2.6.1 Stable</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="images/logo.svg">
+  <link rel="stylesheet" href="css/style.css?v=2.6.1">
 </head>
 <body>
   <div class="nt-app">
@@ -27,7 +29,7 @@
         <button class="nt-nav-item" data-page="more"><span>☰</span>更多</button>
       </nav>
 
-      <div class="nt-version">NovelTracker V2.5.0</div>
+      <div class="nt-version">NovelTracker V2.6.1 Stable</div>
     </aside>
 
     <main class="nt-main">
@@ -41,15 +43,15 @@
       <section class="nt-page active" id="page-home" data-title="首頁">
         <div class="nt-stat-grid">
           <button type="button" class="nt-stat-card nt-stat-link nt-novel-tint" data-go="novels">
-            <span>📖 小說</span>
-            <strong id="stat-novels">0</strong>
-            <small>總數</small>
+            <span class="nt-stat-top"><b>📖 小說</b><i>→</i></span>
+            <strong><em id="stat-novels">0</em> 本</strong>
+            <small>查看小說總覽</small>
           </button>
 
           <button type="button" class="nt-stat-card nt-stat-link nt-drama-tint" data-go="dramas">
-            <span>🎥 短劇</span>
-            <strong id="stat-dramas">0</strong>
-            <small>總數</small>
+            <span class="nt-stat-top"><b>🎥 短劇</b><i>→</i></span>
+            <strong><em id="stat-dramas">0</em> 部</strong>
+            <small>查看短劇總覽</small>
           </button>
 
           <article class="nt-stat-card nt-success-tint nt-completed-card">
@@ -104,9 +106,9 @@
           </div>
           <div class="nt-quick-grid">
             <button class="nt-quick-btn" data-go="add">➕ 新增追蹤</button>
-            <button class="nt-quick-btn" data-go="overview">📚 查看總覽</button>
-            <button class="nt-quick-btn" data-go="more" data-open-more="sheet">☁️ 雲端同步</button>
-            <button class="nt-quick-btn" data-go="more" data-open-more="category">🏷️ 分類管理</button>
+            <button class="nt-quick-btn" type="button" id="quick-download">⬇️ 從雲端下載</button>
+            <button class="nt-quick-btn" type="button" id="quick-upload">⬆️ 備份至雲端</button>
+            <button class="nt-quick-btn" type="button" id="quick-search">🔍 搜尋資料</button>
           </div>
         </section>
       </section>
@@ -226,7 +228,10 @@
           <section class="nt-card" id="more-sheet">
             <div class="nt-section-heading">
               <div>
-                <h2>☁️ Google Sheets 雙向同步</h2>
+                <div class="nt-sheet-heading-row">
+                  <h2>☁️ Google Sheets 雙向同步</h2>
+                  <span class="nt-connection-badge offline" id="cloud-connection-status">尚未設定</span>
+                </div>
                 <p>下載與上傳皆會完整保留 Google Sheet 的資料順序。</p>
               </div>
             </div>
@@ -325,6 +330,21 @@
   </div>
 
 
+
+  <div class="nt-toast-region" id="nt-toast-region" aria-live="polite" aria-atomic="true"></div>
+
+  <div class="nt-dialog-backdrop" id="nt-confirm-backdrop" hidden>
+    <section class="nt-confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="nt-confirm-title">
+      <div class="nt-confirm-icon">🗑️</div>
+      <h2 id="nt-confirm-title">刪除資料</h2>
+      <p id="nt-confirm-message">確定要刪除這筆資料嗎？</p>
+      <div class="nt-confirm-actions">
+        <button type="button" class="nt-btn nt-btn-light" id="nt-confirm-cancel">取消</button>
+        <button type="button" class="nt-btn nt-btn-danger" id="nt-confirm-ok">確認刪除</button>
+      </div>
+    </section>
+  </div>
+
   <iframe
     name="nt-cloud-upload-frame"
     id="nt-cloud-upload-frame"
@@ -332,13 +352,13 @@
     hidden
   ></iframe>
 
-  <script src="js/storage.js?v=2.5.0"></script>
-  <script src="js/dashboard.js?v=2.5.0"></script>
-  <script src="js/render.js?v=2.5.0"></script>
-  <script src="js/filter.js?v=2.5.0"></script>
-  <script src="js/search.js?v=2.5.0"></script>
-  <script src="js/sheet.js?v=2.5.0"></script>
-  <script src="js/ui.js?v=2.5.0"></script>
-  <script src="js/app.js?v=2.5.0"></script>
+  <script src="js/storage.js?v=2.6.1"></script>
+  <script src="js/dashboard.js?v=2.6.1"></script>
+  <script src="js/render.js?v=2.6.1"></script>
+  <script src="js/filter.js?v=2.6.1"></script>
+  <script src="js/search.js?v=2.6.1"></script>
+  <script src="js/sheet.js?v=2.6.1"></script>
+  <script src="js/ui.js?v=2.6.1"></script>
+  <script src="js/app.js?v=2.6.1"></script>
 </body>
 </html>

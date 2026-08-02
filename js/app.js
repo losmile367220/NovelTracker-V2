@@ -128,17 +128,17 @@
       resetForm();
       NT_UI.showPage("overview");
 
-      alert(`儲存成功！目前共有 ${NT_STORE.getRows().length} 筆資料。`);
+      NT_UI.toast(`儲存成功，目前共有 ${NT_STORE.getRows().length} 筆資料。`);
     } catch (error) {
       console.error("儲存失敗：", error);
-      alert(`儲存失敗：${error.message}`);
+      NT_UI.toast(`儲存失敗：${error.message}`, "error", 4500);
     }
   }
 
   function editRow(index) {
     const row = NT_STORE.getRows()[index];
     if (!row) {
-      alert("找不到這筆資料，請重新整理後再試。");
+      NT_UI.toast("找不到這筆資料，請重新整理後再試。", "error");
       return;
     }
 
@@ -158,19 +158,24 @@
     NT_UI.showPage("add");
   }
 
-  function deleteRow(index) {
+  async function deleteRow(index) {
     const row = NT_STORE.getRows()[index];
     if (!row) return;
 
     const name = text(row[1]) || text(row[8]) || "這筆資料";
-    if (!confirm(`確定要刪除「${name}」嗎？`)) return;
+    const confirmed = await NT_UI.confirmDialog(
+      `確定要刪除「${name}」嗎？刪除後仍需按「備份至雲端」，Google Sheet 才會同步刪除。`
+    );
+
+    if (!confirmed) return;
 
     if (!NT_STORE.deleteRow(index)) {
-      alert("刪除失敗，請重新整理後再試。");
+      NT_UI.toast("刪除失敗，請重新整理後再試。", "error");
       return;
     }
 
     NT_RENDER.renderAll();
+    NT_UI.toast(`已刪除「${name}」。`, "success");
   }
 
   function addCategory() {
@@ -195,10 +200,10 @@
       renderCategoryManager();
       NT_DASHBOARD.render();
 
-      alert(`分類「${value}」新增成功。`);
+      NT_UI.toast(`分類「${value}」新增成功。`);
     } catch (error) {
       console.error("新增分類失敗：", error);
-      alert(`新增分類失敗：${error.message}`);
+      NT_UI.toast(`新增分類失敗：${error.message}`, "error");
     }
   }
 
@@ -221,6 +226,27 @@
           event.preventDefault();
           addCategory();
         }
+      });
+
+      document.getElementById("quick-download")?.addEventListener("click", () => {
+        NT_UI.showPage("more");
+        setTimeout(() => {
+          document.getElementById("more-sheet")?.scrollIntoView({ behavior: "smooth" });
+          NT_SHEET?.downloadFromCloud?.();
+        }, 120);
+      });
+
+      document.getElementById("quick-upload")?.addEventListener("click", () => {
+        NT_UI.showPage("more");
+        setTimeout(() => {
+          document.getElementById("more-sheet")?.scrollIntoView({ behavior: "smooth" });
+          NT_SHEET?.uploadToCloud?.();
+        }, 120);
+      });
+
+      document.getElementById("quick-search")?.addEventListener("click", () => {
+        NT_UI.showPage("overview");
+        setTimeout(() => NT_SEARCH?.open?.(), 120);
       });
 
       resetForm();
