@@ -14,7 +14,7 @@
         <div class="nt-brand-icon">🎬</div>
         <div>
           <strong>NovelTracker</strong>
-          <small>V2.0 Framework</small>
+          <small>V2.1 Data</small>
         </div>
       </div>
 
@@ -27,7 +27,7 @@
         <button class="nt-nav-item" data-page="more"><span>☰</span>更多</button>
       </nav>
 
-      <div class="nt-version">NovelTracker V2.0.0</div>
+      <div class="nt-version">NovelTracker V2.1.0</div>
     </aside>
 
     <main class="nt-main">
@@ -42,15 +42,15 @@
         <div class="nt-stat-grid">
           <article class="nt-stat-card nt-novel-tint">
             <span>📖 小說</span>
-            <strong id="stat-novels">128</strong>
+            <strong id="stat-novels">0</strong>
           </article>
           <article class="nt-stat-card nt-drama-tint">
             <span>🎥 短劇</span>
-            <strong id="stat-dramas">46</strong>
+            <strong id="stat-dramas">0</strong>
           </article>
           <article class="nt-stat-card nt-success-tint">
             <span>✅ 已完結</span>
-            <strong id="stat-completed">93</strong>
+            <strong id="stat-completed">0</strong>
           </article>
         </div>
 
@@ -60,16 +60,16 @@
           </div>
           <div class="nt-progress-list">
             <div class="nt-progress-item">
-              <div><span>小說完結進度</span><strong>72%</strong></div>
-              <div class="nt-progress-track"><span style="width:72%"></span></div>
+              <div><span>小說完結進度</span><strong id="novel-progress-text">0%</strong></div>
+              <div class="nt-progress-track"><span id="novel-progress-bar" style="width:0%"></span></div>
             </div>
             <div class="nt-progress-item">
-              <div><span>短劇完結進度</span><strong>58%</strong></div>
-              <div class="nt-progress-track"><span style="width:58%"></span></div>
+              <div><span>短劇完結進度</span><strong id="drama-progress-text">0%</strong></div>
+              <div class="nt-progress-track"><span id="drama-progress-bar" style="width:0%"></span></div>
             </div>
             <div class="nt-progress-item">
-              <div><span>全部完結進度</span><strong>66%</strong></div>
-              <div class="nt-progress-track"><span style="width:66%"></span></div>
+              <div><span>全部完結進度</span><strong id="all-progress-text">0%</strong></div>
+              <div class="nt-progress-track"><span id="all-progress-bar" style="width:0%"></span></div>
             </div>
           </div>
         </section>
@@ -78,13 +78,7 @@
           <div class="nt-section-heading">
             <h2>分類統計</h2>
           </div>
-          <div class="nt-simple-list">
-            <div><span>穿越</span><strong>28</strong></div>
-            <div><span>重生</span><strong>24</strong></div>
-            <div><span>系統</span><strong>20</strong></div>
-            <div><span>現代</span><strong>18</strong></div>
-            <div><span>宮鬥</span><strong>16</strong></div>
-          </div>
+          <div class="nt-simple-list" id="category-stats"></div>
         </section>
 
         <section class="nt-card">
@@ -115,39 +109,7 @@
           </div>
         </section>
 
-        <div class="nt-overview-grid">
-          <article class="nt-content-card">
-            <div class="nt-tags"><span>穿越</span><span>空間</span></div>
-            <div class="nt-dual-block nt-novel-block">
-              <small>📖 小說</small>
-              <h3>我的夫君柔弱自理</h3>
-              <p>作者：勤不語</p>
-              <p>281 章 · 完結</p>
-            </div>
-            <div class="nt-dual-divider"></div>
-            <div class="nt-dual-block nt-drama-block">
-              <small>🎥 短劇</small>
-              <h3>醫妃駕到：我的夫君柔弱自理</h3>
-              <p>第五季 · 完結</p>
-            </div>
-          </article>
-
-          <article class="nt-content-card">
-            <div class="nt-tags"><span>穿書</span><span>古代</span></div>
-            <div class="nt-dual-block nt-novel-block">
-              <small>📖 小說</small>
-              <h3>示範小說名稱</h3>
-              <p>作者：示範作者</p>
-              <p>847 章 · 連載中</p>
-            </div>
-            <div class="nt-dual-divider"></div>
-            <div class="nt-dual-block nt-drama-block">
-              <small>🎥 短劇</small>
-              <h3>示範短劇名稱</h3>
-              <p>第二季 · 更新中</p>
-            </div>
-          </article>
-        </div>
+        <div class="nt-overview-grid" id="overview-list"></div>
       </section>
 
       <section class="nt-page" id="page-novels" data-title="小說總覽">
@@ -165,70 +127,54 @@
           </div>
         </section>
 
-        <div class="nt-card-grid">
-          <article class="nt-content-card nt-novel-card">
-            <div class="nt-tags"><span>穿越</span><span>空間</span></div>
-            <small>📖 小說</small>
-            <h3>我的夫君柔弱自理</h3>
-            <p>作者：勤不語</p>
-            <div class="nt-meta-grid">
-              <div><b>男主角</b><span>姜重華</span></div>
-              <div><b>女主角</b><span>月般般</span></div>
-              <div><b>章節</b><span>281</span></div>
-              <div><b>狀態</b><span>完結</span></div>
-            </div>
-          </article>
-        </div>
+        <div class="nt-card-grid" id="novel-list"></div>
       </section>
 
       <section class="nt-page" id="page-add" data-title="新增追蹤項目">
-        <form class="nt-card nt-form">
+        <form class="nt-card nt-form" id="tracker-form">
           <div class="nt-section-heading">
             <div>
-              <h2>新增小說＋短劇</h2>
+              <h2 id="form-heading">新增小說＋短劇</h2>
               <p>同一筆資料一起新增，維持 Google Sheet 原本 13 欄結構。</p>
             </div>
           </div>
 
           <div class="nt-field">
             <label>分類（可多選）</label>
-            <div class="nt-tags nt-selectable-tags">
-              <button type="button">穿越</button>
-              <button type="button">空間</button>
-              <button type="button">系統</button>
-              <button type="button">重生</button>
-              <button type="button">古代</button>
-            </div>
+            <input type="hidden" id="edit-index" value="">
+            <input type="hidden" id="category" value="">
+            <div class="nt-tags nt-selectable-tags" id="form-category-tags"></div>
           </div>
 
           <div class="nt-form-columns">
             <section class="nt-form-panel nt-novel-panel">
               <h3>📖 小說資訊</h3>
               <div class="nt-input-grid">
-                <label>小說名稱<input type="text"></label>
-                <label>作者<input type="text"></label>
-                <label>男主角<input type="text"></label>
-                <label>女主角<input type="text"></label>
-                <label>章節<input type="text"></label>
-                <label>完結狀態<input type="text"></label>
-                <label class="wide">TXT 連結／備註<input type="text"></label>
+                <label>小說名稱<input type="text" id="novelName"></label>
+                <label>作者<input type="text" id="author"></label>
+                <label>男主角<input type="text" id="novelML"></label>
+                <label>女主角<input type="text" id="novelFL"></label>
+                <label>章節<input type="text" id="chapter"></label>
+                <label>完結狀態<input type="text" id="novelStatus"></label>
+                <label class="wide">TXT 連結／備註<input type="text" id="txtLink"></label>
               </div>
             </section>
 
             <section class="nt-form-panel nt-drama-panel">
               <h3>🎥 短劇資訊</h3>
               <div class="nt-input-grid">
-                <label class="wide">短劇名稱<input type="text"></label>
-                <label>男主角<input type="text"></label>
-                <label>女主角<input type="text"></label>
-                <label>進度<input type="text"></label>
-                <label>完結狀態<input type="text"></label>
+                <label class="wide">短劇名稱<input type="text" id="dramaName"></label>
+                <label>男主角<input type="text" id="dramaML"></label>
+                <label>女主角<input type="text" id="dramaFL"></label>
+                <label>進度<input type="text" id="dramaProgress"></label>
+                <label>完結狀態<input type="text" id="dramaStatus"></label>
               </div>
             </section>
           </div>
 
           <div class="nt-form-actions">
-            <button class="nt-btn nt-btn-primary" type="button">儲存追蹤項目</button>
+            <button class="nt-btn nt-btn-primary" type="submit" id="submit-btn">儲存追蹤項目</button>
+            <button class="nt-btn nt-btn-light" type="button" id="cancel-edit-btn" hidden>取消編輯</button>
             <button class="nt-btn nt-btn-light" type="reset">清除</button>
           </div>
         </form>
@@ -249,19 +195,7 @@
           </div>
         </section>
 
-        <div class="nt-card-grid">
-          <article class="nt-content-card nt-drama-card">
-            <div class="nt-tags"><span>穿越</span><span>空間</span></div>
-            <small>🎥 短劇</small>
-            <h3>醫妃駕到：我的夫君柔弱自理</h3>
-            <div class="nt-meta-grid">
-              <div><b>男主角</b><span>月般般</span></div>
-              <div><b>女主角</b><span>姜晏辭</span></div>
-              <div><b>進度</b><span>第五季</span></div>
-              <div><b>狀態</b><span>完結</span></div>
-            </div>
-          </article>
-        </div>
+        <div class="nt-card-grid" id="drama-list"></div>
       </section>
 
       <section class="nt-page" id="page-more" data-title="更多">
@@ -282,13 +216,10 @@
 
           <section class="nt-card" id="more-category">
             <div class="nt-section-heading"><h2>🏷️ 分類管理</h2></div>
-            <div class="nt-tags">
-              <span>穿越 ×</span><span>空間 ×</span><span>系統 ×</span>
-              <span>重生 ×</span><span>古代 ×</span><span>現代 ×</span>
-            </div>
+            <div class="nt-tags nt-category-manage-list" id="category-manage-list"></div>
             <div class="nt-inline-form">
-              <input type="text" placeholder="輸入新分類">
-              <button class="nt-btn nt-btn-primary">新增分類</button>
+              <input type="text" id="new-category-input" placeholder="輸入新分類">
+              <button class="nt-btn nt-btn-primary" id="add-category-btn" type="button">新增分類</button>
             </div>
           </section>
         </div>
