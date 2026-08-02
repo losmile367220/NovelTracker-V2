@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#7C6CF6">
+  <title>NovelTracker V2</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="nt-app">
+    <aside class="nt-sidebar">
+      <div class="nt-brand">
+        <div class="nt-brand-icon">🎬</div>
+        <div>
+          <strong>NovelTracker</strong>
+          <small>V2.0 Framework</small>
+        </div>
+      </div>
+
+      <nav class="nt-side-nav" aria-label="主要導覽">
+        <button class="nt-nav-item active" data-page="home"><span>🏠</span>首頁</button>
+        <button class="nt-nav-item" data-page="overview"><span>📚</span>總覽</button>
+        <button class="nt-nav-item" data-page="novels"><span>📖</span>小說</button>
+        <button class="nt-nav-item" data-page="add"><span>➕</span>新增</button>
+        <button class="nt-nav-item" data-page="dramas"><span>🎥</span>短劇</button>
+        <button class="nt-nav-item" data-page="more"><span>☰</span>更多</button>
+      </nav>
+
+      <div class="nt-version">NovelTracker V2.0.0</div>
+    </aside>
+
+    <main class="nt-main">
+      <header class="nt-topbar">
+        <div>
+          <div class="nt-breadcrumb">首頁</div>
+          <h1 id="page-title">首頁</h1>
+        </div>
+      </header>
+
+      <section class="nt-page active" id="page-home" data-title="首頁">
+        <div class="nt-stat-grid">
+          <article class="nt-stat-card nt-novel-tint">
+            <span>📖 小說</span>
+            <strong id="stat-novels">128</strong>
+          </article>
+          <article class="nt-stat-card nt-drama-tint">
+            <span>🎥 短劇</span>
+            <strong id="stat-dramas">46</strong>
+          </article>
+          <article class="nt-stat-card nt-success-tint">
+            <span>✅ 已完結</span>
+            <strong id="stat-completed">93</strong>
+          </article>
+        </div>
+
+        <section class="nt-card">
+          <div class="nt-section-heading">
+            <h2>進度總覽</h2>
+          </div>
+          <div class="nt-progress-list">
+            <div class="nt-progress-item">
+              <div><span>小說完結進度</span><strong>72%</strong></div>
+              <div class="nt-progress-track"><span style="width:72%"></span></div>
+            </div>
+            <div class="nt-progress-item">
+              <div><span>短劇完結進度</span><strong>58%</strong></div>
+              <div class="nt-progress-track"><span style="width:58%"></span></div>
+            </div>
+            <div class="nt-progress-item">
+              <div><span>全部完結進度</span><strong>66%</strong></div>
+              <div class="nt-progress-track"><span style="width:66%"></span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="nt-card">
+          <div class="nt-section-heading">
+            <h2>分類統計</h2>
+          </div>
+          <div class="nt-simple-list">
+            <div><span>穿越</span><strong>28</strong></div>
+            <div><span>重生</span><strong>24</strong></div>
+            <div><span>系統</span><strong>20</strong></div>
+            <div><span>現代</span><strong>18</strong></div>
+            <div><span>宮鬥</span><strong>16</strong></div>
+          </div>
+        </section>
+
+        <section class="nt-card">
+          <div class="nt-section-heading">
+            <h2>快速操作</h2>
+          </div>
+          <div class="nt-quick-grid">
+            <button class="nt-quick-btn" data-go="add">➕ 新增追蹤</button>
+            <button class="nt-quick-btn" data-go="overview">📚 查看總覽</button>
+            <button class="nt-quick-btn" data-go="more" data-open-more="sheet">☁️ 雲端同步</button>
+            <button class="nt-quick-btn" data-go="more" data-open-more="category">🏷️ 分類管理</button>
+          </div>
+        </section>
+      </section>
+
+      <section class="nt-page" id="page-overview" data-title="小說＋短劇總覽">
+        <section class="nt-card">
+          <div class="nt-section-heading">
+            <div>
+              <h2>小說＋短劇總覽</h2>
+              <p>一張卡同時呈現小說與短劇資訊。</p>
+            </div>
+          </div>
+          <div class="nt-filter-shell">
+            <input type="search" placeholder="搜尋小說、作者、主角、短劇…">
+            <button class="nt-btn nt-btn-light">分類篩選</button>
+            <button class="nt-btn nt-btn-light">進階欄位篩選</button>
+          </div>
+        </section>
+
+        <div class="nt-overview-grid">
+          <article class="nt-content-card">
+            <div class="nt-tags"><span>穿越</span><span>空間</span></div>
+            <div class="nt-dual-block nt-novel-block">
+              <small>📖 小說</small>
+              <h3>我的夫君柔弱自理</h3>
+              <p>作者：勤不語</p>
+              <p>281 章 · 完結</p>
+            </div>
+            <div class="nt-dual-divider"></div>
+            <div class="nt-dual-block nt-drama-block">
+              <small>🎥 短劇</small>
+              <h3>醫妃駕到：我的夫君柔弱自理</h3>
+              <p>第五季 · 完結</p>
+            </div>
+          </article>
+
+          <article class="nt-content-card">
+            <div class="nt-tags"><span>穿書</span><span>古代</span></div>
+            <div class="nt-dual-block nt-novel-block">
+              <small>📖 小說</small>
+              <h3>示範小說名稱</h3>
+              <p>作者：示範作者</p>
+              <p>847 章 · 連載中</p>
+            </div>
+            <div class="nt-dual-divider"></div>
+            <div class="nt-dual-block nt-drama-block">
+              <small>🎥 短劇</small>
+              <h3>示範短劇名稱</h3>
+              <p>第二季 · 更新中</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="nt-page" id="page-novels" data-title="小說總覽">
+        <section class="nt-card">
+          <div class="nt-section-heading">
+            <div>
+              <h2>小說總覽</h2>
+              <p>包含分類與小說專用進階篩選。</p>
+            </div>
+          </div>
+          <div class="nt-filter-shell">
+            <input type="search" placeholder="搜尋小說、作者、男主角、女主角…">
+            <button class="nt-btn nt-btn-light">分類篩選</button>
+            <button class="nt-btn nt-btn-light">進階欄位篩選</button>
+          </div>
+        </section>
+
+        <div class="nt-card-grid">
+          <article class="nt-content-card nt-novel-card">
+            <div class="nt-tags"><span>穿越</span><span>空間</span></div>
+            <small>📖 小說</small>
+            <h3>我的夫君柔弱自理</h3>
+            <p>作者：勤不語</p>
+            <div class="nt-meta-grid">
+              <div><b>男主角</b><span>姜重華</span></div>
+              <div><b>女主角</b><span>月般般</span></div>
+              <div><b>章節</b><span>281</span></div>
+              <div><b>狀態</b><span>完結</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="nt-page" id="page-add" data-title="新增追蹤項目">
+        <form class="nt-card nt-form">
+          <div class="nt-section-heading">
+            <div>
+              <h2>新增小說＋短劇</h2>
+              <p>同一筆資料一起新增，維持 Google Sheet 原本 13 欄結構。</p>
+            </div>
+          </div>
+
+          <div class="nt-field">
+            <label>分類（可多選）</label>
+            <div class="nt-tags nt-selectable-tags">
+              <button type="button">穿越</button>
+              <button type="button">空間</button>
+              <button type="button">系統</button>
+              <button type="button">重生</button>
+              <button type="button">古代</button>
+            </div>
+          </div>
+
+          <div class="nt-form-columns">
+            <section class="nt-form-panel nt-novel-panel">
+              <h3>📖 小說資訊</h3>
+              <div class="nt-input-grid">
+                <label>小說名稱<input type="text"></label>
+                <label>作者<input type="text"></label>
+                <label>男主角<input type="text"></label>
+                <label>女主角<input type="text"></label>
+                <label>章節<input type="text"></label>
+                <label>完結狀態<input type="text"></label>
+                <label class="wide">TXT 連結／備註<input type="text"></label>
+              </div>
+            </section>
+
+            <section class="nt-form-panel nt-drama-panel">
+              <h3>🎥 短劇資訊</h3>
+              <div class="nt-input-grid">
+                <label class="wide">短劇名稱<input type="text"></label>
+                <label>男主角<input type="text"></label>
+                <label>女主角<input type="text"></label>
+                <label>進度<input type="text"></label>
+                <label>完結狀態<input type="text"></label>
+              </div>
+            </section>
+          </div>
+
+          <div class="nt-form-actions">
+            <button class="nt-btn nt-btn-primary" type="button">儲存追蹤項目</button>
+            <button class="nt-btn nt-btn-light" type="reset">清除</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="nt-page" id="page-dramas" data-title="短劇總覽">
+        <section class="nt-card">
+          <div class="nt-section-heading">
+            <div>
+              <h2>短劇總覽</h2>
+              <p>包含分類與短劇專用進階篩選。</p>
+            </div>
+          </div>
+          <div class="nt-filter-shell">
+            <input type="search" placeholder="搜尋短劇、演員、進度…">
+            <button class="nt-btn nt-btn-light">分類篩選</button>
+            <button class="nt-btn nt-btn-light">進階欄位篩選</button>
+          </div>
+        </section>
+
+        <div class="nt-card-grid">
+          <article class="nt-content-card nt-drama-card">
+            <div class="nt-tags"><span>穿越</span><span>空間</span></div>
+            <small>🎥 短劇</small>
+            <h3>醫妃駕到：我的夫君柔弱自理</h3>
+            <div class="nt-meta-grid">
+              <div><b>男主角</b><span>月般般</span></div>
+              <div><b>女主角</b><span>姜晏辭</span></div>
+              <div><b>進度</b><span>第五季</span></div>
+              <div><b>狀態</b><span>完結</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="nt-page" id="page-more" data-title="更多">
+        <div class="nt-more-grid">
+          <section class="nt-card" id="more-sheet">
+            <div class="nt-section-heading"><h2>☁️ Google Sheets 同步</h2></div>
+            <div class="nt-field">
+              <label>Apps Script 網址</label>
+              <input type="text" placeholder="https://script.google.com/macros/s/.../exec">
+            </div>
+            <div class="nt-form-actions">
+              <button class="nt-btn nt-btn-light">儲存網址</button>
+              <button class="nt-btn nt-btn-primary">從雲端下載</button>
+              <button class="nt-btn nt-btn-warning">備份至雲端</button>
+            </div>
+            <p class="nt-hint">Framework 版本先完成介面，功能會在後續版本接回。</p>
+          </section>
+
+          <section class="nt-card" id="more-category">
+            <div class="nt-section-heading"><h2>🏷️ 分類管理</h2></div>
+            <div class="nt-tags">
+              <span>穿越 ×</span><span>空間 ×</span><span>系統 ×</span>
+              <span>重生 ×</span><span>古代 ×</span><span>現代 ×</span>
+            </div>
+            <div class="nt-inline-form">
+              <input type="text" placeholder="輸入新分類">
+              <button class="nt-btn nt-btn-primary">新增分類</button>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <nav class="nt-bottom-nav" aria-label="手機導覽">
+      <button class="active" data-page="home"><span>🏠</span><small>首頁</small></button>
+      <button data-page="overview"><span>📚</span><small>總覽</small></button>
+      <button data-page="add" class="nt-add-tab"><span>＋</span><small>新增</small></button>
+      <button data-page="novels"><span>📖</span><small>小說</small></button>
+      <button data-page="dramas"><span>🎥</span><small>短劇</small></button>
+      <button data-page="more"><span>☰</span><small>更多</small></button>
+    </nav>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/filter.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/sheet.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
